@@ -20,10 +20,10 @@ jobs:
       uses: actions/setup-dotnet@v2
 
     - name: Restore dependencies
-      run: dotnet restore ./Meta.Instagram/Meta.Instagram.Api.sln --configfile nuget.config
+      run: dotnet restore ./Meta.Instagram/Meta.Instagram.sln --configfile nuget.config
 
     - name: Build the project
-      run: dotnet build ./Meta.Instagram/Meta.Instagram.Api.sln --configuration Release --no-restore
+      run: dotnet build ./Meta.Instagram/Meta.Instagram.sln --configuration Release --no-restore
 
     - name: Deploy to Dev Environment
       run: echo "Deploying to Development environment..."
