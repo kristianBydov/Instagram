@@ -1,0 +1,25 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up .NET Core
+      uses: actions/setup-dotnet@v2
+
+    - name: Restore dependencies
+      run: dotnet restore ./Meta.Instagram/Meta.Instagram.sln --configfile nuget.config
+
+    - name: Build the project
+      run: dotnet build ./Meta.Instagram/Meta.Instagram.sln --configuration Release --no-restore
