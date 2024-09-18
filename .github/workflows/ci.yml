@@ -19,7 +19,7 @@ jobs:
       uses: actions/setup-dotnet@v2
 
     - name: Restore dependencies
-      run: dotnet restore ./Meta.Instagram/Meta.Instagram.sln --configfile
+      run: dotnet restore ./Meta.Instagram/Meta.Instagram.sln
 
     - name: Build the project
       run: dotnet build ./Meta.Instagram/Meta.Instagram.sln --configuration Release --no-restore
