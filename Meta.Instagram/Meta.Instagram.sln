@@ -13,9 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meta.Instagram.UnitTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meta.Instagram.IntegrationTests", "Meta.Instagram.IntegrationTests\Meta.Instagram.IntegrationTests.csproj", "{A08C2047-860A-4ACD-B5CB-DFD0A2F618E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meta.Instagram.ContractTests", "Meta.Instagram.ContractTests\Meta.Instagram.ContractTests.csproj", "{84310CAE-1E61-4263-99A2-558D7C9F483F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meta.Instagram.Api", "Meta.Instagram.Api\Meta.Instagram.Api.csproj", "{81C37A0D-7AEB-4EFE-8591-D8ADDC1ADAC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meta.Instagram.Api", "Meta.Instagram.Api\Meta.Instagram.Api.csproj", "{81C37A0D-7AEB-4EFE-8591-D8ADDC1ADAC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{A08C2047-860A-4ACD-B5CB-DFD0A2F618E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A08C2047-860A-4ACD-B5CB-DFD0A2F618E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A08C2047-860A-4ACD-B5CB-DFD0A2F618E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{84310CAE-1E61-4263-99A2-558D7C9F483F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{84310CAE-1E61-4263-99A2-558D7C9F483F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{84310CAE-1E61-4263-99A2-558D7C9F483F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{84310CAE-1E61-4263-99A2-558D7C9F483F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{81C37A0D-7AEB-4EFE-8591-D8ADDC1ADAC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81C37A0D-7AEB-4EFE-8591-D8ADDC1ADAC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81C37A0D-7AEB-4EFE-8591-D8ADDC1ADAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
