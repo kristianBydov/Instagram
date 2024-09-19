@@ -21,6 +21,20 @@ namespace Meta.Instagram.Bussines.Services
             _authenticationApi = new AuthenticationApiClient(_options.Domain);
         }
 
+        public async Task ChangeAuth0UserPasswordAsync(string userId, string newPassword)
+        {
+            var managementApiClient = new ManagementApiClient(await GetToken(), _options.Domain);
+
+            var updateUserRequest = new UserUpdateRequest
+            {
+                Password = newPassword,
+                Connection = "Username-Password-Authentication"
+            };
+
+            var updatedUser = await managementApiClient.Users.UpdateAsync(userId, updateUserRequest)
+                ?? throw new AuthenticationException("There was a problem with the password change.");
+        }
+
         public async Task<User> CreateAuth0UserAsync(CreateAccountRequest request)
         {
             try

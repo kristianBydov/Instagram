@@ -21,6 +21,25 @@ namespace Meta.Instagram.Bussines.Services
             _mapper = mapper;
         }
 
+        public async Task ChangeAccountPasswordAsync(ChangeAccountPasswordRequest request)
+        {
+
+            try
+            {
+                var account = await _accountRepository.GetAccountAsync(request.AccountId!).ConfigureAwait(false)
+                    ?? throw new NotFoundException("Account not found.");
+
+                await _authenticationService.ChangeAuth0UserPasswordAsync(account.ExternalId!, request.NewPassword!);
+                account.UpdatedAt = DateTime.Now;
+
+                await _accountRepository.UpdateAccountAsync(account);
+            }
+            catch (AuthenticationException ex)
+            {
+                throw new AuthenticationException(ex.Message);
+            }
+        }
+
         public async Task<AccountContract> PostAccountAsync(CreateAccountRequest request)
         {
             try

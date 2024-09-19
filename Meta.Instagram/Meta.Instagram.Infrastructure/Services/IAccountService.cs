@@ -6,5 +6,6 @@ namespace Meta.Instagram.Infrastructure.Services
     public interface IAccountService
     {
         Task<AccountContract> PostAccountAsync(CreateAccountRequest request);
+        Task ChangeAccountPasswordAsync(ChangeAccountPasswordRequest request);
     }
 }
