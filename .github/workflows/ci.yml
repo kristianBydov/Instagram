@@ -23,3 +23,6 @@ jobs:
 
     - name: Build the project
       run: dotnet build ./Meta.Instagram/Meta.Instagram.sln --configuration Release --no-restore
+
+    - name: Run unit tests
+      run: dotnet test ./Meta.Instagram/Meta.Instagram.UnitTests.csproj --configuration Release --no-build
