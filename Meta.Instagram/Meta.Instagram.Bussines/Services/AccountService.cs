@@ -23,7 +23,6 @@ namespace Meta.Instagram.Bussines.Services
 
         public async Task ChangeAccountPasswordAsync(ChangeAccountPasswordRequest request)
         {
-
             try
             {
                 var account = await _accountRepository.GetAccountAsync(request.AccountId!).ConfigureAwait(false)
