@@ -20,6 +20,77 @@ namespace Meta.Instagram.Api.Controllers
             _accountService = accountService;
         }
 
+        [HttpPut, Route("accounts/change-password")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> ChangeAccountPasswordAsync([BindRequired, FromBody] ChangeAccountPasswordRequest request)
+        {
+            try
+            {
+                await _accountService.ChangeAccountPasswordAsync(request).ConfigureAwait(false);
+
+                return NoContent();
+            }
+            catch (NotFoundException ex)
+            {
+                var errorContract = new ErrorContract
+                {
+                    Details = ex.Message,
+                    Title = "Resource not found",
+                    StatusCode = StatusCodes.Status404NotFound
+                };
+
+                return new ObjectResult(errorContract)
+                {
+                    StatusCode = StatusCodes.Status404NotFound
+                };
+            }
+            catch (AuthenticationException ex)
+            {
+                var errorContract = new ErrorContract
+                {
+                    Details = ex.Message,
+                    Title = "Change Password Failed",
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+
+                return new ObjectResult(errorContract)
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            }
+            catch (DatabaseException ex)
+            {
+                var errorContract = new ErrorContract
+                {
+                    Details = ex.Message,
+                    Title = "Change Password Failed",
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+
+                return new ObjectResult(errorContract)
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            }
+            catch (Exception ex)
+            {
+                var errorContract = new ErrorContract
+                {
+                    Details = ex.Message,
+                    Title = "Change Password Failed",
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+
+                return new ObjectResult(errorContract)
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            }
+        }
+
         [HttpPost, Route("accounts")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
